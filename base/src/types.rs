@@ -8,6 +8,8 @@ use std::rc::Rc;
 
 use pretty::{DocAllocator, Arena, DocBuilder};
 
+use smallvec::{SmallVec, VecLike};
+
 use ast;
 use ast::{AstType, DisplayEnv};
 use symbol::{Symbol, SymbolRef};
@@ -78,6 +80,12 @@ pub fn instantiate<F>(typ: TcType, mut f: F) -> TcType
                    })
 }
 
+/// SmallVec used in the `Type::App` constructor to avoid alloacting a `Vec` for every applied
+/// type. If `Type` is changed in a way that changes its size it is likely a good idea to change
+/// the number of elements in the `SmallVec` so that it fills out the entire `Type` enum while not
+/// increasing the size of `Type`.
+pub type AppVec<T> = SmallVec<[T; 2]>;
+
 /// The representation of gluon's types.
 ///
 /// For efficency this enum is not stored directly but instead a pointer wrapper which derefs to
@@ -90,7 +98,7 @@ pub enum Type<Id, T = AstType<Id>> {
     Hole,
     /// An application with multiple arguments.
     /// `Map String Int` would be represented as `App(Map, [String, Int])`
-    App(T, Vec<T>),
+    App(T, AppVec<T>),
     /// A variant type `| A Int Float | B`.
     /// The second element of the tuple is the function type which the constructor has which in the
     /// above example means that A's type is `Int -> Float -> A` and B's is `B`
@@ -429,7 +437,10 @@ impl<Id, T> Type<Id, T>
         Type::app(Type::builtin(BuiltinType::Array), vec![typ])
     }
 
-    pub fn app(id: T, args: Vec<T>) -> T {
+    pub fn app<I>(id: T, args: I) -> T
+        where I: IntoIterator<Item = T>
+    {
+        let args: AppVec<T> = args.into_iter().collect();
         if args.is_empty() {
             id
         } else {
@@ -1027,11 +1038,11 @@ pub fn walk_move_type_opt<F: ?Sized, I, T>(typ: &Type<I, T>, f: &mut F) -> Optio
 {
     match *typ {
         Type::App(ref id, ref args) => {
-            let new_args = walk_move_types(args, |t| f.visit(t));
+            let new_args = walk_move_types(AppVec::new(), args, |t| f.visit(t));
             merge(id, f.visit(id), args, new_args, Type::app)
         }
         Type::Record { ref types, ref fields } => {
-            let new_fields = walk_move_types(fields, |field| {
+            let new_fields = walk_move_types(Vec::new(), fields, |field| {
                 f.visit(&field.typ).map(|typ| {
                     Field {
                         name: field.name.clone(),
@@ -1042,7 +1053,7 @@ pub fn walk_move_type_opt<F: ?Sized, I, T>(typ: &Type<I, T>, f: &mut F) -> Optio
             new_fields.map(|fields| Type::record(types.clone(), fields))
         }
         Type::Variants(ref variants) => {
-            walk_move_types(variants, |v| f.visit(&v.1).map(|t| (v.0.clone(), t)))
+            walk_move_types(Vec::new(), variants, |v| f.visit(&v.1).map(|t| (v.0.clone(), t)))
                 .map(Type::variants)
         }
         Type::Hole |
@@ -1054,24 +1065,26 @@ pub fn walk_move_type_opt<F: ?Sized, I, T>(typ: &Type<I, T>, f: &mut F) -> Optio
     }
 }
 
-pub fn walk_move_types<'a, I, F, T>(types: I, mut f: F) -> Option<Vec<T>>
+// FIXME Add R: Default and remove the `out` parameter
+pub fn walk_move_types<'a, I, F, T, R>(mut out: R, types: I,  mut f: F) -> Option<R>
     where I: IntoIterator<Item = &'a T>,
           F: FnMut(&'a T) -> Option<T>,
-          T: Clone + 'a
+          T: Clone + 'a,
+          R: VecLike<T>,
 {
-    let mut out = Vec::new();
     walk_move_types2(types.into_iter(), false, &mut out, &mut f);
-    if out.is_empty() {
+    if out.len() == 0 {
         None
     } else {
-        out.reverse();
+        out[..].reverse();
         Some(out)
     }
 }
-fn walk_move_types2<'a, I, F, T>(mut types: I, replaced: bool, output: &mut Vec<T>, f: &mut F)
+fn walk_move_types2<'a, I, F, T, R>(mut types: I, replaced: bool, output: &mut R, f: &mut F)
     where I: Iterator<Item = &'a T>,
           F: FnMut(&'a T) -> Option<T>,
-          T: Clone + 'a
+          T: Clone + 'a,
+          R: VecLike<T>,
 {
     if let Some(typ) = types.next() {
         let new = f(typ);
@@ -1080,7 +1093,7 @@ fn walk_move_types2<'a, I, F, T>(mut types: I, replaced: bool, output: &mut Vec<
             Some(typ) => {
                 output.push(typ);
             }
-            None if replaced || !output.is_empty() => {
+            None if replaced || output.len() != 0 => {
                 output.push(typ.clone());
             }
             None => (),
