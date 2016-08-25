@@ -1209,8 +1209,7 @@ impl<'a> Typecheck<'a> {
                                     Some(new) => (new.clone(), old.1.clone()),
                                     None => old.clone(),
                                 }
-                            })
-                            .collect()))
+                            })))
                     } else {
                         None
                     }

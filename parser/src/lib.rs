@@ -261,7 +261,7 @@ impl<'input, I, Id, F> ParserEnv<I, F>
                        many(self.parser(ParserEnv::<I, F>::type_arg)))
             .map(|(_, id, args): (_, _, Vec<_>)| (id, Type::function(args, return_type.clone())));
         many1(variant)
-            .map(Type::variants)
+            .map(|v: Vec<_>| Type::variants(v))
             .parse_state(input)
     }
 

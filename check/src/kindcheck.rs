@@ -1,7 +1,7 @@
 use std::fmt;
 
 use base::ast;
-use base::types::{self, BuiltinType, Generic, RcKind, TcType, Type, Kind, merge};
+use base::types::{self, BuiltinType, Generic, RcKind, TcType, Type, Kind, VariantVec, merge};
 use base::symbol::Symbol;
 use base::types::{KindEnv, Walker};
 
@@ -181,7 +181,7 @@ impl<'a> KindCheck<'a> {
                 Ok((kind, Type::app(ctor, new_args)))
             }
             Type::Variants(ref variants) => {
-                let variants = try!(variants.iter()
+                let variants: VariantVec<_> = try!(variants.iter()
                     .map(|variant| {
                         let (kind, typ) = try!(self.kindcheck(&variant.1));
                         let type_kind = self.type_kind();

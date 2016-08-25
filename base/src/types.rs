@@ -85,6 +85,7 @@ pub fn instantiate<F>(typ: TcType, mut f: F) -> TcType
 /// the number of elements in the `SmallVec` so that it fills out the entire `Type` enum while not
 /// increasing the size of `Type`.
 pub type AppVec<T> = SmallVec<[T; 2]>;
+pub type VariantVec<T> = SmallVec<[T; 3]>;
 
 /// The representation of gluon's types.
 ///
@@ -102,7 +103,7 @@ pub enum Type<Id, T = AstType<Id>> {
     /// A variant type `| A Int Float | B`.
     /// The second element of the tuple is the function type which the constructor has which in the
     /// above example means that A's type is `Int -> Float -> A` and B's is `B`
-    Variants(Vec<(Id, T)>),
+    Variants(VariantVec<(Id, T)>),
     /// Representation for type variables
     Variable(TypeVariable),
     /// Variant for "generic" variables. These occur in signatures as lowercase identifers `a`, `b`
@@ -448,8 +449,10 @@ impl<Id, T> Type<Id, T>
         }
     }
 
-    pub fn variants(vs: Vec<(Id, T)>) -> T {
-        T::from(Type::Variants(vs))
+    pub fn variants<I>(vs: I) -> T
+        where I: IntoIterator<Item = (Id, T)>
+    {
+        T::from(Type::Variants(vs.into_iter().collect()))
     }
 
     pub fn record(types: Vec<Field<Id, Alias<Id, T>>>, fields: Vec<Field<Id, T>>) -> T {
@@ -1053,7 +1056,9 @@ pub fn walk_move_type_opt<F: ?Sized, I, T>(typ: &Type<I, T>, f: &mut F) -> Optio
             new_fields.map(|fields| Type::record(types.clone(), fields))
         }
         Type::Variants(ref variants) => {
-            walk_move_types(Vec::new(), variants, |v| f.visit(&v.1).map(|t| (v.0.clone(), t)))
+            walk_move_types(VariantVec::new(),
+                            variants,
+                            |v| f.visit(&v.1).map(|t| (v.0.clone(), t)))
                 .map(Type::variants)
         }
         Type::Hole |
@@ -1066,11 +1071,11 @@ pub fn walk_move_type_opt<F: ?Sized, I, T>(typ: &Type<I, T>, f: &mut F) -> Optio
 }
 
 // FIXME Add R: Default and remove the `out` parameter
-pub fn walk_move_types<'a, I, F, T, R>(mut out: R, types: I,  mut f: F) -> Option<R>
+pub fn walk_move_types<'a, I, F, T, R>(mut out: R, types: I, mut f: F) -> Option<R>
     where I: IntoIterator<Item = &'a T>,
           F: FnMut(&'a T) -> Option<T>,
           T: Clone + 'a,
-          R: VecLike<T>,
+          R: VecLike<T>
 {
     walk_move_types2(types.into_iter(), false, &mut out, &mut f);
     if out.len() == 0 {
@@ -1084,7 +1089,7 @@ fn walk_move_types2<'a, I, F, T, R>(mut types: I, replaced: bool, output: &mut R
     where I: Iterator<Item = &'a T>,
           F: FnMut(&'a T) -> Option<T>,
           T: Clone + 'a,
-          R: VecLike<T>,
+          R: VecLike<T>
 {
     if let Some(typ) = types.next() {
         let new = f(typ);
