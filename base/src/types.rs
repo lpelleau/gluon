@@ -84,8 +84,8 @@ pub fn instantiate<F>(typ: TcType, mut f: F) -> TcType
 /// type. If `Type` is changed in a way that changes its size it is likely a good idea to change
 /// the number of elements in the `SmallVec` so that it fills out the entire `Type` enum while not
 /// increasing the size of `Type`.
-pub type AppVec<T> = SmallVec<[T; 2]>;
-pub type VariantVec<T> = SmallVec<[T; 3]>;
+pub type AppVec<T> = SmallVec<[T; 3]>;
+pub type VariantVec<T> = SmallVec<[T; 2]>;
 
 /// The representation of gluon's types.
 ///
