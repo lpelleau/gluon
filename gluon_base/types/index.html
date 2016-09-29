@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `types` mod in crate `gluon_base`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, types">
+
+    <title>gluon_base::types - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>gluon_base</a></p><script>window.sidebarCurrent = {name: 'types', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>gluon_base</a>::<wbr><a class='mod' href=''>types</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2342' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#1-1221' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Module containing types representing <code>gluon</code>&#39;s type system</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Alias.html'
+                                  title='gluon_base::types::Alias'>Alias</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.AliasData.html'
+                                  title='gluon_base::types::AliasData'>AliasData</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ArcKind.html'
+                                  title='gluon_base::types::ArcKind'>ArcKind</a></td>
+                           <td class='docblock short'>
+                                <p>Reference counted kind type.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ArcType.html'
+                                  title='gluon_base::types::ArcType'>ArcType</a></td>
+                           <td class='docblock short'>
+                                <p>A shared type which is atomically reference counted</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ArgIterator.html'
+                                  title='gluon_base::types::ArgIterator'>ArgIterator</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ControlVisitation.html'
+                                  title='gluon_base::types::ControlVisitation'>ControlVisitation</a></td>
+                           <td class='docblock short'>
+                                <p>Wrapper type which allows functions to control how to traverse the members of the type</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.DisplayType.html'
+                                  title='gluon_base::types::DisplayType'>DisplayType</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Field.html'
+                                  title='gluon_base::types::Field'>Field</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FieldIterator.html'
+                                  title='gluon_base::types::FieldIterator'>FieldIterator</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Generic.html'
+                                  title='gluon_base::types::Generic'>Generic</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TypeFieldIterator.html'
+                                  title='gluon_base::types::TypeFieldIterator'>TypeFieldIterator</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.TypeVariable.html'
+                                  title='gluon_base::types::TypeVariable'>TypeVariable</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.BuiltinType.html'
+                                  title='gluon_base::types::BuiltinType'>BuiltinType</a></td>
+                           <td class='docblock short'>
+                                <p>All the builtin types of gluon</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.Kind.html'
+                                  title='gluon_base::types::Kind'>Kind</a></td>
+                           <td class='docblock short'>
+                                <p>Kind representation</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.Type.html'
+                                  title='gluon_base::types::Type'>Type</a></td>
+                           <td class='docblock short'>
+                                <p>The representation of gluon&#39;s types.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.KindEnv.html'
+                                  title='gluon_base::types::KindEnv'>KindEnv</a></td>
+                           <td class='docblock short'>
+                                <p>Trait for values which contains kinded values which can be refered by name</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.PrimitiveEnv.html'
+                                  title='gluon_base::types::PrimitiveEnv'>PrimitiveEnv</a></td>
+                           <td class='docblock short'>
+                                <p>Trait which is a <code>TypeEnv</code> which also provides access to the type representation of some
+primitive types</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.TypeEnv.html'
+                                  title='gluon_base::types::TypeEnv'>TypeEnv</a></td>
+                           <td class='docblock short'>
+                                <p>Trait for values which contains typed values which can be refered by name</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.TypeVisitor.html'
+                                  title='gluon_base::types::TypeVisitor'>TypeVisitor</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Walker.html'
+                                  title='gluon_base::types::Walker'>Walker</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.arg_iter.html'
+                                  title='gluon_base::types::arg_iter'>arg_iter</a></td>
+                           <td class='docblock short'>
+                                <p>Constructs an iterator over a functions arguments</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.display_type.html'
+                                  title='gluon_base::types::display_type'>display_type</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.fold_type.html'
+                                  title='gluon_base::types::fold_type'>fold_type</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.instantiate.html'
+                                  title='gluon_base::types::instantiate'>instantiate</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.merge.html'
+                                  title='gluon_base::types::merge'>merge</a></td>
+                           <td class='docblock short'>
+                                <p>Merges two values using <code>f</code> if either or both them is <code>Some(..)</code>.
+If both are <code>None</code>, <code>None</code> is returned.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.walk_kind.html'
+                                  title='gluon_base::types::walk_kind'>walk_kind</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.walk_move_type.html'
+                                  title='gluon_base::types::walk_move_type'>walk_move_type</a></td>
+                           <td class='docblock short'>
+                                <p>Walks through a type calling <code>f</code> on each inner type. If <code>f</code> return <code>Some</code> the type is replaced.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.walk_move_type_opt.html'
+                                  title='gluon_base::types::walk_move_type_opt'>walk_move_type_opt</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.walk_move_types.html'
+                                  title='gluon_base::types::walk_move_types'>walk_move_types</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.walk_type.html'
+                                  title='gluon_base::types::walk_type'>walk_type</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.walk_type_.html'
+                                  title='gluon_base::types::walk_type_'>walk_type_</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "gluon_base";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

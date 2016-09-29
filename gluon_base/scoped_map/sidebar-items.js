@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Iter",""],["ScopedMap","A map struct which allows for the introduction of different scopes Introducing a new scope will make it possible to introduce additional variables with names already defined, shadowing the old name After exiting a scope the shadowed variable will again be re introduced"]]});

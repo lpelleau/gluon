@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `RootedThread` struct in crate `gluon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, RootedThread">
+
+    <title>gluon::RootedThread - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>gluon</a></p><script>window.sidebarCurrent = {name: 'RootedThread', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>gluon</a>::<wbr><a class='struct' href=''>RootedThread</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-4681' class='srclink' href='../gluon_vm/thread/struct.RootedThread.html?gotosrc=4681' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct RootedThread(_);</pre><div class='docblock'><p>An instance of <code>Thread</code> which is rooted. See the <code>Thread</code> type for documentation on interacting
+with the type.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></h4>
+<div class='docblock'><p>Creates a new virtual machine with an empty global environment</p>
+</div><h4 id='method.into_raw' class='method'><code>fn <a href='#method.into_raw' class='fnname'>into_raw</a>(self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a></code></h4>
+<div class='docblock'><p>Converts a <code>RootedThread</code> into a raw pointer allowing to be passed through a C api.
+The reference count for the thread is not modified</p>
+</div><h4 id='method.from_raw' class='method'><code>unsafe fn <a href='#method.from_raw' class='fnname'>from_raw</a>(ptr: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>) -&gt; <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></h4>
+<div class='docblock'><p>Converts a raw pointer into a <code>RootedThread</code>.
+The reference count for the thread is not modified so it is up to the caller to ensure that
+the count is correct.</p>
+</div></div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>&gt;</h2><div class='impl-items'><h4 id='method.new_thread' class='method'><code>fn <a href='#method.new_thread' class='fnname'>new_thread</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a>,&nbsp;<a class='enum' href='../gluon_vm/enum.Error.html' title='gluon_vm::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Spawns a new gluon thread with its own stack and heap but while still sharing the same
+global environment</p>
+</div><h4 id='method.root_thread' class='method'><code>fn <a href='#method.root_thread' class='fnname'>root_thread</a>(&amp;self) -&gt; <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></h4>
+<div class='docblock'><p>Roots <code>self</code>, extending the lifetime of this thread until at least the returned
+<code>RootedThread</code> is droppped</p>
+</div><h4 id='method.define_global' class='method'><code>fn <a href='#method.define_global' class='fnname'>define_global</a>&lt;'vm,&nbsp;T&gt;(&amp;'vm self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, value: T) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../gluon_vm/enum.Error.html' title='gluon_vm::Error'>Error</a>&gt; <span class='where'>where T: <a class='trait' href='../gluon_vm/api/trait.Pushable.html' title='gluon_vm::api::Pushable'>Pushable</a>&lt;'vm&gt; + <a class='trait' href='../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a></span></code></h4>
+<div class='docblock'><p>Creates a new global value at <code>name</code>.
+Fails if a global called <code>name</code> already exists.</p>
+</div><h4 id='method.get_global' class='method'><code>fn <a href='#method.get_global' class='fnname'>get_global</a>&lt;'vm,&nbsp;T&gt;(&amp;'vm self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T,&nbsp;<a class='enum' href='../gluon_vm/enum.Error.html' title='gluon_vm::Error'>Error</a>&gt; <span class='where'>where T: <a class='trait' href='../gluon_vm/api/trait.Getable.html' title='gluon_vm::api::Getable'>Getable</a>&lt;'vm&gt; + <a class='trait' href='../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a></span></code></h4>
+<div class='docblock'><p>Retrieves the global called <code>name</code>.
+Fails if the global does not exist or it does not have the correct type.</p>
+</div><h4 id='method.find_type_info' class='method'><code>fn <a href='#method.find_type_info' class='fnname'>find_type_info</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../gluon_base/types/struct.Alias.html' title='gluon_base::types::Alias'>Alias</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>,&nbsp;<a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;&gt;,&nbsp;<a class='enum' href='../gluon_vm/enum.Error.html' title='gluon_vm::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Retrieves type information about the type <code>name</code>. Types inside records can be accessed
+using dot notation (std.prelude.Option)</p>
+</div><h4 id='method.get_type' class='method'><code>fn <a href='#method.get_type' class='fnname'>get_type</a>&lt;T&gt;(&amp;self) -&gt; <a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/any/trait.Any.html' title='core::any::Any'>Any</a> + ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h4>
+<div class='docblock'><p>Returns the gluon type that was bound to <code>T</code></p>
+</div><h4 id='method.register_type' class='method'><code>fn <a href='#method.register_type' class='fnname'>register_type</a>&lt;T&gt;(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, args: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a>&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;,&nbsp;<a class='enum' href='../gluon_vm/enum.Error.html' title='gluon_vm::Error'>Error</a>&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/any/trait.Any.html' title='core::any::Any'>Any</a> + ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h4>
+<div class='docblock'><p>Registers the type <code>T</code> as being a gluon type called <code>name</code> with generic arguments <code>args</code></p>
+</div><h4 id='method.get_env' class='method'><code>fn <a href='#method.get_env' class='fnname'>get_env</a>(&amp;'b self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/std/sync/rwlock/struct.RwLockReadGuard.html' title='std::sync::rwlock::RwLockReadGuard'>RwLockReadGuard</a>&lt;'b,&nbsp;VmEnv&gt;</code></h4>
+<div class='docblock'><p>Locks and retrieves the global environment of the vm</p>
+</div><h4 id='method.get_macros' class='method'><code>fn <a href='#method.get_macros' class='fnname'>get_macros</a>(&amp;self) -&gt; &amp;<a class='struct' href='../gluon_vm/macros/struct.MacroEnv.html' title='gluon_vm::macros::MacroEnv'>MacroEnv</a></code></h4>
+<div class='docblock'><p>Retrieves the macros defined for this vm</p>
+</div><h4 id='method.collect' class='method'><code>fn <a href='#method.collect' class='fnname'>collect</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Runs a garbage collection.</p>
+</div><h4 id='method.push' class='method'><code>fn <a href='#method.push' class='fnname'>push</a>&lt;'vm,&nbsp;T&gt;(&amp;'vm self, v: T) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../gluon_vm/enum.Error.html' title='gluon_vm::Error'>Error</a>&gt; <span class='where'>where T: <a class='trait' href='../gluon_vm/api/trait.Pushable.html' title='gluon_vm::api::Pushable'>Pushable</a>&lt;'vm&gt;</span></code></h4>
+<div class='docblock'><p>Pushes a value to the top of the stack</p>
+</div><h4 id='method.pop' class='method'><code>fn <a href='#method.pop' class='fnname'>pop</a>(&amp;self)</code></h4>
+<div class='docblock'><p>Removes the top value from the stack</p>
+</div><h4 id='method.set_memory_limit' class='method'><code>fn <a href='#method.set_memory_limit' class='fnname'>set_memory_limit</a>(&amp;self, memory_limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a> for <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Type' class='type'><code>type <a href='../gluon_vm/api/trait.VmType.html#associatedtype.Type' class='type'>Type</a> = <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></h4>
+<div class='docblock'><p>A version of <code>Self</code> which implements <code>Any</code> allowing a <code>TypeId</code> to be retrieved</p>
+</div><h4 id='method.make_type' class='method'><code>fn <a href='../gluon_vm/api/trait.VmType.html#method.make_type' class='fnname'>make_type</a>(vm: &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>) -&gt; <a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;</code></h4>
+<div class='docblock'><p>Creates an gluon type which maps to <code>Self</code> in rust</p>
+</div><h4 id='method.extra_args' class='method'><code>fn <a href='../gluon_vm/api/trait.VmType.html#method.extra_args' class='fnname'>extra_args</a>() -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a></code></h4>
+<div class='docblock'><p>How many extra arguments a function returning this type requires. Used for abstract types which when used in return position should act like they still need more arguments before they are called <a href="../gluon_vm/api/trait.VmType.html#method.extra_args">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'vm&gt; <a class='trait' href='../gluon_vm/api/trait.Pushable.html' title='gluon_vm::api::Pushable'>Pushable</a>&lt;'vm&gt; for <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.push-1' class='method'><code>fn <a href='../gluon_vm/api/trait.Pushable.html#tymethod.push' class='fnname'>push</a>(self, _vm: &amp;'vm <a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, context: &amp;mut <a class='struct' href='../gluon_vm/thread/struct.Context.html' title='gluon_vm::thread::Context'>Context</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='enum' href='../gluon_vm/enum.Error.html' title='gluon_vm::Error'>Error</a>&gt;</code></h4>
+<div class='docblock'><p>Pushes <code>self</code> to <code>stack</code>. If the call is successful a single element should have been added to the stack and <code>Ok(())</code> should be returned. If the call is unsuccessful <code>Status:Error</code> should be returned and the stack should be left intact <a href="../gluon_vm/api/trait.Pushable.html#tymethod.push">Read more</a></p>
+</div><h4 id='method.status_push' class='method'><code>fn <a href='../gluon_vm/api/trait.Pushable.html#method.status_push' class='fnname'>status_push</a>(self, vm: &amp;'vm <a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, context: &amp;mut <a class='struct' href='../gluon_vm/thread/struct.Context.html' title='gluon_vm::thread::Context'>Context</a>) -&gt; <a class='enum' href='../gluon_vm/thread/enum.Status.html' title='gluon_vm::thread::Status'>Status</a></code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = <a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a></code></h4>
+<h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a></code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../gluon_vm/gc/trait.Traverseable.html' title='gluon_vm::gc::Traverseable'>Traverseable</a> for <a class='struct' href='../gluon/struct.RootedThread.html' title='gluon::RootedThread'>RootedThread</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.traverse' class='method'><code>fn <a href='../gluon_vm/gc/trait.Traverseable.html#method.traverse' class='fnname'>traverse</a>(&amp;self, gc: &amp;mut <a class='struct' href='../gluon_vm/gc/struct.Gc.html' title='gluon_vm::gc::Gc'>Gc</a>)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "gluon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

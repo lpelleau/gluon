@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `api` mod in crate `gluon_vm`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, api">
+
+    <title>gluon_vm::api - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>gluon_vm</a></p><script>window.sidebarCurrent = {name: 'api', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>gluon_vm</a>::<wbr><a class='mod' href=''>api</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-8' class='srclink' href='../../src/gluon_vm/vm/src/api.rs.html#1-1625' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>The marshalling api</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class='mod'
+                                       href='./record/index.html'>record</a>::<a class='struct' href='../../gluon_vm/api/record/struct.Record.html' title='gluon_vm::api::record::Record'>Record</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='generic/index.html'
+                                  title='gluon_vm::api::generic'>generic</a></td>
+                           <td class='docblock short'>
+                                <p>Module containing types which represent generic variables in gluon&#39;s type system</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='record/index.html'
+                                  title='gluon_vm::api::record'>record</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Array.html'
+                                  title='gluon_vm::api::Array'>Array</a></td>
+                           <td class='docblock short'>
+                                <p>Type which represents an array</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.CPrimitive.html'
+                                  title='gluon_vm::api::CPrimitive'>CPrimitive</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Data.html'
+                                  title='gluon_vm::api::Data'>Data</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Function.html'
+                                  title='gluon_vm::api::Function'>Function</a></td>
+                           <td class='docblock short'>
+                                <p>Type which represents an function in gluon</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Generic.html'
+                                  title='gluon_vm::api::Generic'>Generic</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Hole.html'
+                                  title='gluon_vm::api::Hole'>Hole</a></td>
+                           <td class='docblock short'>
+                                <p>Marker type representing a hole</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.OpaqueValue.html'
+                                  title='gluon_vm::api::OpaqueValue'>OpaqueValue</a></td>
+                           <td class='docblock short'>
+                                <p>Type which represents an array in gluon
+Type implementing both <code>Pushable</code> and <code>Getable</code> of values of <code>V</code>.
+The actual value, <code>V</code> is not accessible directly but is only intended to be transferred between
+two different threads.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Primitive.html'
+                                  title='gluon_vm::api::Primitive'>Primitive</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.WithVM.html'
+                                  title='gluon_vm::api::WithVM'>WithVM</a></td>
+                           <td class='docblock short'>
+                                <p>Wrapper type which passes acts as the type <code>T</code> but also passes the <code>VM</code> to the called function</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.IO.html'
+                                  title='gluon_vm::api::IO'>IO</a></td>
+                           <td class='docblock short'>
+                                <p>Type representing gluon&#39;s IO type#[derive(Debug)]</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.RuntimeResult.html'
+                                  title='gluon_vm::api::RuntimeResult'>RuntimeResult</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.ValueRef.html'
+                                  title='gluon_vm::api::ValueRef'>ValueRef</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.FunctionType.html'
+                                  title='gluon_vm::api::FunctionType'>FunctionType</a></td>
+                           <td class='docblock short'>
+                                <p>Trait which represents a function</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Getable.html'
+                                  title='gluon_vm::api::Getable'>Getable</a></td>
+                           <td class='docblock short'>
+                                <p>Trait which allows rust values to be retrieved from the virtual machine</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Pushable.html'
+                                  title='gluon_vm::api::Pushable'>Pushable</a></td>
+                           <td class='docblock short'>
+                                <p>Trait which allows a rust value to be pushed to the virtual machine</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.Userdata.html'
+                                  title='gluon_vm::api::Userdata'>Userdata</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.VmFunction.html'
+                                  title='gluon_vm::api::VmFunction'>VmFunction</a></td>
+                           <td class='docblock short'>
+                                <p>Trait which abstracts over types which can be called by being pulling the arguments it needs
+from the virtual machine&#39;s stack</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.VmType.html'
+                                  title='gluon_vm::api::VmType'>VmType</a></td>
+                           <td class='docblock short'>
+                                <p>Trait which maps a type in rust to a type in gluon</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.primitive.html'
+                                  title='gluon_vm::api::primitive'>primitive</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.primitive_f.html'
+                                  title='gluon_vm::api::primitive_f'>primitive_f</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.FunctionRef.html'
+                                  title='gluon_vm::api::FunctionRef'>FunctionRef</a></td>
+                           <td class='docblock short'>
+                                <p>Type which represents a function reference in gluon</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "gluon_vm";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["metadata","Queries `expr` for the metadata which it contains."]]});

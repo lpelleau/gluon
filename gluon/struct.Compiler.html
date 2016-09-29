@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Compiler` struct in crate `gluon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Compiler">
+
+    <title>gluon::Compiler - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>gluon</a></p><script>window.sidebarCurrent = {name: 'Compiler', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>gluon</a>::<wbr><a class='struct' href=''>Compiler</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-822' class='srclink' href='../src/gluon/src/lib.rs.html#122-125' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Compiler {
+    // some fields omitted
+}</pre><div class='docblock'><p>Type which makes parsing, typechecking and compiling an AST into bytecode</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../gluon/struct.Compiler.html' title='gluon::Compiler'>Compiler</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-825' class='srclink' href='../src/gluon/src/lib.rs.html#127-326' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../gluon/struct.Compiler.html' title='gluon::Compiler'>Compiler</a></code></h4>
+<div class='docblock'><p>Creates a new compiler with default settings</p>
+</div><h4 id='method.implicit_prelude' class='method'><code>fn <a href='#method.implicit_prelude' class='fnname'>implicit_prelude</a>(self, implicit_prelude: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='struct' href='../gluon/struct.Compiler.html' title='gluon::Compiler'>Compiler</a></code></h4>
+<div class='docblock'><p>Sets wheter the implicit prelude should be include when compiling a file using this
+compiler (default: true)</p>
+</div><h4 id='method.parse_expr' class='method'><code>fn <a href='#method.parse_expr' class='fnname'>parse_expr</a>(&amp;mut self, file: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr_str: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>StdResult</a>&lt;<a class='type' href='../gluon_base/ast/type.SpannedExpr.html' title='gluon_base::ast::SpannedExpr'>SpannedExpr</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;,&nbsp;<a class='struct' href='../gluon_base/error/struct.InFile.html' title='gluon_base::error::InFile'>InFile</a>&lt;<a class='struct' href='../gluon_parser/struct.ParseError.html' title='gluon_parser::ParseError'>ParseError</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Parse <code>expr_str</code>, returning an expression if successful</p>
+</div><h4 id='method.parse_partial_expr' class='method'><code>fn <a href='#method.parse_partial_expr' class='fnname'>parse_partial_expr</a>(&amp;mut self, file: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr_str: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>StdResult</a>&lt;<a class='type' href='../gluon_base/ast/type.SpannedExpr.html' title='gluon_base::ast::SpannedExpr'>SpannedExpr</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../gluon_base/ast/type.SpannedExpr.html' title='gluon_base::ast::SpannedExpr'>SpannedExpr</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;&gt;, <a class='struct' href='../gluon_base/error/struct.InFile.html' title='gluon_base::error::InFile'>InFile</a>&lt;<a class='struct' href='../gluon_parser/struct.ParseError.html' title='gluon_parser::ParseError'>ParseError</a>&gt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+<div class='docblock'><p>Parse <code>input</code>, returning an expression if successful</p>
+</div><h4 id='method.typecheck_expr' class='method'><code>fn <a href='#method.typecheck_expr' class='fnname'>typecheck_expr</a>(&amp;mut self, vm: &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, file: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr_str: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr: &amp;mut <a class='type' href='../gluon_base/ast/type.SpannedExpr.html' title='gluon_base::ast::SpannedExpr'>SpannedExpr</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&gt;</code></h4>
+<div class='docblock'><p>Parse and typecheck <code>expr_str</code> returning the typechecked expression and type of the
+expression</p>
+</div><h4 id='method.typecheck_str' class='method'><code>fn <a href='#method.typecheck_str' class='fnname'>typecheck_str</a>(&amp;mut self, vm: &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, file: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr_str: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expected_type: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&gt;) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='type' href='../gluon_base/ast/type.SpannedExpr.html' title='gluon_base::ast::SpannedExpr'>SpannedExpr</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;, <a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+<h4 id='method.compile_script' class='method'><code>fn <a href='#method.compile_script' class='fnname'>compile_script</a>(&amp;mut self, vm: &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, filename: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr: &amp;<a class='type' href='../gluon_base/ast/type.SpannedExpr.html' title='gluon_base::ast::SpannedExpr'>SpannedExpr</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='struct' href='../gluon_vm/compiler/struct.CompiledFunction.html' title='gluon_vm::compiler::CompiledFunction'>CompiledFunction</a>&gt;</code></h4>
+<div class='docblock'><p>Compiles <code>expr</code> into a function which can be added and run by the <code>vm</code></p>
+</div><h4 id='method.extract_metadata' class='method'><code>fn <a href='#method.extract_metadata' class='fnname'>extract_metadata</a>(&amp;mut self, vm: &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, file: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr_str: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='type' href='../gluon_base/ast/type.SpannedExpr.html' title='gluon_base::ast::SpannedExpr'>SpannedExpr</a>&lt;<a class='struct' href='../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt;, <a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>, <a class='struct' href='../gluon_base/metadata/struct.Metadata.html' title='gluon_base::metadata::Metadata'>Metadata</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+<div class='docblock'><p>Parses and typechecks <code>expr_str</code> followed by extracting metadata from the created
+expression</p>
+</div><h4 id='method.load_script' class='method'><code>fn <a href='#method.load_script' class='fnname'>load_script</a>(&amp;mut self, vm: &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, filename: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, input: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Compiles <code>input</code> and if it is successful runs the resulting code and stores the resulting
+value in the vm.</p>
+
+<p>If at any point the function fails the resulting error is returned and nothing is added to
+the VM.</p>
+</div><h4 id='method.load_file' class='method'><code>fn <a href='#method.load_file' class='fnname'>load_file</a>(&amp;mut self, vm: &amp;<a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, filename: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Loads <code>filename</code> and compiles and runs its input by calling <code>load_script</code></p>
+</div><h4 id='method.run_expr' class='method'><code>fn <a href='#method.run_expr' class='fnname'>run_expr</a>&lt;'vm,&nbsp;T&gt;(&amp;mut self, vm: &amp;'vm <a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr_str: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>T, <a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt; <span class='where'>where T: <a class='trait' href='../gluon_vm/api/trait.Getable.html' title='gluon_vm::api::Getable'>Getable</a>&lt;'vm&gt; + <a class='trait' href='../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a></span></code></h4>
+<div class='docblock'><p>Compiles and runs the expression in <code>expr_str</code>. If successful the value from running the
+expression is returned</p>
+</div><h4 id='method.run_io_expr' class='method'><code>fn <a href='#method.run_io_expr' class='fnname'>run_io_expr</a>&lt;'vm,&nbsp;T&gt;(&amp;mut self, vm: &amp;'vm <a class='struct' href='../gluon/struct.Thread.html' title='gluon::Thread'>Thread</a>, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, expr_str: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../gluon/type.Result.html' title='gluon::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>T, <a class='struct' href='../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt; <span class='where'>where T: <a class='trait' href='../gluon_vm/api/trait.Getable.html' title='gluon_vm::api::Getable'>Getable</a>&lt;'vm&gt; + <a class='trait' href='../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h4>
+<div class='docblock'><p>Compiles and runs <code>expr_str</code>. If the expression is of type <code>IO a</code> the action is evaluated
+and a value of type <code>a</code> is returned</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "gluon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

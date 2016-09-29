@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error","Error type for the import macro"]],"struct":[["CheckImporter",""],["DefaultImporter",""],["Import","Macro which rewrites occurances of `import \"filename\"` to a load of that file if it is not already loaded and then a global access to the loaded module"]],"trait":[["Importer",""]]});

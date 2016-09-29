@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `TypeError` enum in crate `gluon_check`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, TypeError">
+
+    <title>gluon_check::typecheck::TypeError - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>gluon_check</a>::<wbr><a href='index.html'>typecheck</a></p><script>window.sidebarCurrent = {name: 'TypeError', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>gluon_check</a>::<wbr><a href='index.html'>typecheck</a>::<wbr><a class='enum' href=''>TypeError</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-136' class='srclink' href='../../src/gluon_check/check/src/typecheck.rs.html#27-54' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum TypeError&lt;I&gt; {
+    UndefinedVariable(I),
+    NotAFunction(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;),
+    UndefinedType(I),
+    UndefinedField(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;I),
+    PatternError(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>),
+    Unification(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../gluon_check/unify_type/type.Error.html' title='gluon_check::unify_type::Error'>Error</a>&lt;I&gt;&gt;),
+    KindError(<a class='type' href='../../gluon_check/kindcheck/type.Error.html' title='gluon_check::kindcheck::Error'>Error</a>&lt;I&gt;),
+    Rename(RenameError),
+    DuplicateTypeDefinition(I),
+    DuplicateField(I),
+    InvalidProjection(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;),
+    UndefinedRecord {
+        fields: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;I&gt;,
+    },
+    EmptyCase,
+}</pre><div class='docblock'><p>Type representing a single error when checking a type</p>
+</div><h2 class='variants'>Variants</h2>
+<span id='variant.UndefinedVariable' class='variant'><code>UndefinedVariable(I)</code></span><div class='docblock'><p>Variable has not been defined before it was used</p>
+</div><span id='variant.NotAFunction' class='variant'><code>NotAFunction(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;)</code></span><div class='docblock'><p>Attempt to call a type which is not a function</p>
+</div><span id='variant.UndefinedType' class='variant'><code>UndefinedType(I)</code></span><div class='docblock'><p>Type has not been defined before it was used</p>
+</div><span id='variant.UndefinedField' class='variant'><code>UndefinedField(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;I)</code></span><div class='docblock'><p>Type were expected to have a certain field</p>
+</div><span id='variant.PatternError' class='variant'><code>PatternError(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span><div class='docblock'><p>Constructor type was found in a pattern but did not have the expected number of arguments</p>
+</div><span id='variant.Unification' class='variant'><code>Unification(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../gluon_check/unify_type/type.Error.html' title='gluon_check::unify_type::Error'>Error</a>&lt;I&gt;&gt;)</code></span><div class='docblock'><p>Errors found when trying to unify two types</p>
+</div><span id='variant.KindError' class='variant'><code>KindError(<a class='type' href='../../gluon_check/kindcheck/type.Error.html' title='gluon_check::kindcheck::Error'>Error</a>&lt;I&gt;)</code></span><div class='docblock'><p>Error were found when trying to unify the kinds of two types</p>
+</div><span id='variant.Rename' class='variant'><code>Rename(RenameError)</code></span><div class='docblock'><p>Errors found during renaming (overload resolution)</p>
+</div><span id='variant.DuplicateTypeDefinition' class='variant'><code>DuplicateTypeDefinition(I)</code></span><div class='docblock'><p>Multiple types were declared with the same name in the same expression</p>
+</div><span id='variant.DuplicateField' class='variant'><code>DuplicateField(I)</code></span><div class='docblock'><p>A field was defined more than once in a record constructor or pattern match</p>
+</div><span id='variant.InvalidProjection' class='variant'><code>InvalidProjection(<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;I&gt;)</code></span><div class='docblock'><p>Type is not a type which has any fields</p>
+</div><span id='variant.UndefinedRecord' class='variant'><code>UndefinedRecord</code></span><div class='docblock'><p>Expected to find a record with the following fields</p>
+</div><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.UndefinedRecord.field.fields'><code>fields:&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;I&gt;</code></td><td></td></tr></table><span id='variant.EmptyCase' class='variant'><code>EmptyCase</code></span><div class='docblock'><p>Found a case expression without any alternatives</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;I:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-26' class='srclink' href='../../src/gluon_check/check/src/typecheck.rs.html#26' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;I:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-102' class='srclink' href='../../src/gluon_check/check/src/typecheck.rs.html#26' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;I&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;<a class='type' href='../../gluon_check/kindcheck/type.Error.html' title='gluon_check::kindcheck::Error'>Error</a>&lt;I&gt;&gt; for <a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt; <span class='where'>where I: <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-167' class='srclink' href='../../src/gluon_check/check/src/typecheck.rs.html#56-65' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class='type' href='../../gluon_check/kindcheck/type.Error.html' title='gluon_check::kindcheck::Error'>Error</a>&lt;I&gt;) -&gt; <a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;</code></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;I&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;RenameError&gt; for <a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-173' class='srclink' href='../../src/gluon_check/check/src/typecheck.rs.html#67-71' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from-1' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: RenameError) -&gt; <a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;</code></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;I:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='enum' href='../../gluon_check/typecheck/enum.TypeError.html' title='gluon_check::typecheck::TypeError'>TypeError</a>&lt;I&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-177' class='srclink' href='../../src/gluon_check/check/src/typecheck.rs.html#73-127' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "gluon_check";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

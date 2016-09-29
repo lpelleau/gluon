@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `VmType` trait in crate `gluon_vm`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, VmType">
+
+    <title>gluon_vm::api::VmType - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>gluon_vm</a>::<wbr><a href='index.html'>api</a></p><script>window.sidebarCurrent = {name: 'VmType', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>gluon_vm</a>::<wbr><a href='index.html'>api</a>::<wbr><a class='trait' href=''>VmType</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-602' class='srclink' href='../../src/gluon_vm/vm/src/api.rs.html#259-274' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait VmType {
+    type <a href='#associatedtype.Type' class='type'>Type</a>: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/any/trait.Any.html' title='core::any::Any'>Any</a>;
+    fn <a href='#method.make_type' class='fnname'>make_type</a>(vm: &amp;<a class='struct' href='../../gluon_vm/thread/struct.Thread.html' title='gluon_vm::thread::Thread'>Thread</a>) -&gt; <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a> { ... }
+    fn <a href='#method.extra_args' class='fnname'>extra_args</a>() -&gt; <a class='type' href='../../gluon_vm/types/type.VmIndex.html' title='gluon_vm::types::VmIndex'>VmIndex</a> { ... }
+}</pre><div class='docblock'><p>Trait which maps a type in rust to a type in gluon</p>
+</div>
+            <h2 id='associated-types'>Associated Types</h2>
+            <div class='methods'>
+        <h3 id='associatedtype.Type' class='method stab '><code>type <a href='#associatedtype.Type' class='type'>Type</a>: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/any/trait.Any.html' title='core::any::Any'>Any</a></code></h3><div class='docblock'><p>A version of <code>Self</code> which implements <code>Any</code> allowing a <code>TypeId</code> to be retrieved</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.make_type' class='method stab '><code>fn <a href='#method.make_type' class='fnname'>make_type</a>(vm: &amp;<a class='struct' href='../../gluon_vm/thread/struct.Thread.html' title='gluon_vm::thread::Thread'>Thread</a>) -&gt; <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a></code></h3><div class='docblock'><p>Creates an gluon type which maps to <code>Self</code> in rust</p>
+</div><h3 id='method.extra_args' class='method stab '><code>fn <a href='#method.extra_args' class='fnname'>extra_args</a>() -&gt; <a class='type' href='../../gluon_vm/types/type.VmIndex.html' title='gluon_vm::types::VmIndex'>VmIndex</a></code></h3><div class='docblock'><p>How many extra arguments a function returning this type requires.
+Used for abstract types which when used in return position should act like they still need
+more arguments before they are called</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.A.html' title='gluon_vm::api::generic::A'>A</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.B.html' title='gluon_vm::api::generic::B'>B</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.C.html' title='gluon_vm::api::generic::C'>C</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.D.html' title='gluon_vm::api::generic::D'>D</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.E.html' title='gluon_vm::api::generic::E'>E</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.F.html' title='gluon_vm::api::generic::F'>F</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.G.html' title='gluon_vm::api::generic::G'>G</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.H.html' title='gluon_vm::api::generic::H'>H</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.I.html' title='gluon_vm::api::generic::I'>I</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.J.html' title='gluon_vm::api::generic::J'>J</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.K.html' title='gluon_vm::api::generic::K'>K</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.L.html' title='gluon_vm::api::generic::L'>L</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.M.html' title='gluon_vm::api::generic::M'>M</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.N.html' title='gluon_vm::api::generic::N'>N</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.O.html' title='gluon_vm::api::generic::O'>O</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.P.html' title='gluon_vm::api::generic::P'>P</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.Q.html' title='gluon_vm::api::generic::Q'>Q</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.R.html' title='gluon_vm::api::generic::R'>R</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.X.html' title='gluon_vm::api::generic::X'>X</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.Y.html' title='gluon_vm::api::generic::Y'>Y</a></code></li>
+<li><code>impl VmType for <a class='enum' href='../../gluon_vm/api/generic/enum.Z.html' title='gluon_vm::api::generic::Z'>Z</a></code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;F:&nbsp;<a class='trait' href='../../gluon_vm/api/record/trait.Field.html' title='gluon_vm::api::record::Field'>Field</a>,&nbsp;T:&nbsp;<a class='trait' href='../../gluon_vm/api/record/trait.FieldTypes.html' title='gluon_vm::api::record::FieldTypes'>FieldTypes</a>&gt; VmType for <a class='struct' href='../../gluon_vm/api/record/struct.Record.html' title='gluon_vm::api::record::Record'>Record</a>&lt;<a class='struct' href='../../gluon_vm/api/record/struct.HList.html' title='gluon_vm::api::record::HList'>HList</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>F, A<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>,&nbsp;T&gt;&gt; <span class='where'>where A::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl VmType for <a class='struct' href='../../gluon_vm/api/struct.Hole.html' title='gluon_vm::api::Hole'>Hole</a></code></li>
+<li><code>impl&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='struct' href='../../gluon_vm/api/struct.Generic.html' title='gluon_vm::api::Generic'>Generic</a>&lt;T&gt;</code></li>
+<li><code>impl&lt;'vm,&nbsp;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for &amp;'vm T</code></li>
+<li><code>impl&lt;'vm,&nbsp;T&gt; VmType for <a class='struct' href='../../gluon_vm/api/struct.WithVM.html' title='gluon_vm::api::WithVM'>WithVM</a>&lt;'vm,&nbsp;T&gt; <span class='where'>where T: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a></span></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></li>
+<li><code>impl VmType for <a class='type' href='../../gluon_vm/types/type.VmInt.html' title='gluon_vm::types::VmInt'>VmInt</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></li>
+<li><code>impl VmType for <a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='core::cmp::Ordering'>Ordering</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></li>
+<li><code>impl VmType for <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></li>
+<li><code>impl VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.char.html'>char</a></code></li>
+<li><code>impl&lt;'s,&nbsp;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='struct' href='https://doc.rust-lang.org/nightly/core/cell/struct.Ref.html' title='core::cell::Ref'>Ref</a>&lt;'s,&nbsp;T&gt;</code></li>
+<li><code>impl&lt;'s,&nbsp;T&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'s [</a>T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a> <span class='where'>where T: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a> + ArrayRepr + 's, T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;T&gt; VmType for <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;T&gt; <span class='where'>where T: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;'s,&nbsp;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const T</a></code></li>
+<li><code>impl&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;T&gt; <span class='where'>where T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>StdResult</a>&lt;T,&nbsp;E&gt; <span class='where'>where T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, E::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E&gt; VmType for <a class='enum' href='../../gluon_vm/api/enum.RuntimeResult.html' title='gluon_vm::api::RuntimeResult'>RuntimeResult</a>&lt;T,&nbsp;E&gt;</code></li>
+<li><code>impl&lt;T&gt; VmType for <a class='enum' href='../../gluon_vm/api/enum.IO.html' title='gluon_vm::api::IO'>IO</a>&lt;T&gt; <span class='where'>where T: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;T,&nbsp;V&gt; VmType for <a class='struct' href='../../gluon_vm/api/struct.OpaqueValue.html' title='gluon_vm::api::OpaqueValue'>OpaqueValue</a>&lt;T,&nbsp;V&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../../gluon_vm/thread/struct.Thread.html' title='gluon_vm::thread::Thread'>Thread</a>&gt;, V: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, V::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;'vm,&nbsp;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='struct' href='../../gluon_vm/api/struct.Array.html' title='gluon_vm::api::Array'>Array</a>&lt;'vm,&nbsp;T&gt; <span class='where'>where T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;'vm,&nbsp;T:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/any/trait.Any.html' title='core::any::Any'>Any</a>&gt; VmType for <a class='struct' href='../../gluon_vm/thread/struct.Root.html' title='gluon_vm::thread::Root'>Root</a>&lt;'vm,&nbsp;T&gt;</code></li>
+<li><code>impl&lt;'vm&gt; VmType for <a class='struct' href='../../gluon_vm/thread/struct.RootStr.html' title='gluon_vm::thread::RootStr'>RootStr</a>&lt;'vm&gt;</code></li>
+<li><code>impl&lt;_0,&nbsp;_1,&nbsp;_2,&nbsp;_3,&nbsp;_4,&nbsp;_5,&nbsp;_6&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>_0, _1, _2, _3, _4, _5, _6<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a> <span class='where'>where _0: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _1: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _2: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _3: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _4: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _5: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _6: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _0::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _1::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _2::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _3::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _4::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _5::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _6::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;_1,&nbsp;_2,&nbsp;_3,&nbsp;_4,&nbsp;_5,&nbsp;_6&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>_1, _2, _3, _4, _5, _6<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a> <span class='where'>where _1: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _2: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _3: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _4: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _5: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _6: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _1::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _2::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _3::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _4::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _5::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _6::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;_2,&nbsp;_3,&nbsp;_4,&nbsp;_5,&nbsp;_6&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>_2, _3, _4, _5, _6<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a> <span class='where'>where _2: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _3: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _4: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _5: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _6: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _2::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _3::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _4::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _5::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _6::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;_3,&nbsp;_4,&nbsp;_5,&nbsp;_6&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>_3, _4, _5, _6<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a> <span class='where'>where _3: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _4: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _5: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _6: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _3::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _4::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _5::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _6::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;_4,&nbsp;_5,&nbsp;_6&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>_4, _5, _6<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a> <span class='where'>where _4: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _5: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _6: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _4::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _5::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _6::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;_5,&nbsp;_6&gt; VmType for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>_5, _6<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a> <span class='where'>where _5: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _6: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>, _5::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>, _6::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;F:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='struct' href='../../gluon_vm/api/struct.Primitive.html' title='gluon_vm::api::Primitive'>Primitive</a>&lt;F&gt;</code></li>
+<li><code>impl&lt;T,&nbsp;F&gt; VmType for <a class='struct' href='../../gluon_vm/api/struct.Function.html' title='gluon_vm::api::Function'>Function</a>&lt;T,&nbsp;F&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../../gluon_vm/thread/struct.Thread.html' title='gluon_vm::thread::Thread'>Thread</a>&gt;, F: <a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a></span></code></li>
+<li><code>impl&lt;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn() -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>() -&gt; R + 's</code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn(A) -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A) -&gt; R + 's</code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn(A, B) -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A, B) -&gt; R + 's</code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn(A, B, C) -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A, B, C) -&gt; R + 's</code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn(A, B, C, D) -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A, B, C, D) -&gt; R + 's</code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn(A, B, C, D, E) -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A, B, C, D, E) -&gt; R + 's</code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;F:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn(A, B, C, D, E, F) -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;F:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A, B, C, D, E, F) -&gt; R + 's</code></li>
+<li><code>impl&lt;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;F:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;G:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for fn(A, B, C, D, E, F, G) -&gt; R</code></li>
+<li><code>impl&lt;'s,&nbsp;A:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;B:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;C:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;D:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;E:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;F:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;G:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>,&nbsp;R:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Fn.html' title='core::ops::Fn'>Fn</a>(A, B, C, D, E, F, G) -&gt; R + 's</code></li>
+<li><code>impl&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='struct' href='../../gluon_vm/channel/struct.Sender.html' title='gluon_vm::channel::Sender'>Sender</a>&lt;T&gt; <span class='where'>where T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.VmType.html' title='gluon_vm::api::VmType'>VmType</a>&gt; VmType for <a class='struct' href='../../gluon_vm/channel/struct.Receiver.html' title='gluon_vm::channel::Receiver'>Receiver</a>&lt;T&gt; <span class='where'>where T::Type: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></li>
+<li><code>impl VmType for <a class='struct' href='../../gluon_vm/thread/struct.RootedThread.html' title='gluon_vm::thread::RootedThread'>RootedThread</a></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/gluon_vm/api/trait.VmType.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "gluon_vm";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

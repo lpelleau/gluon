@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Errors","An error type which can represent multiple errors."],["InFile","Error type which contains information of which file and where in the file the error occured"]]});

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Move` struct in crate `gluon_vm`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Move">
+
+    <title>gluon_vm::gc::Move - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>gluon_vm</a>::<wbr><a href='index.html'>gc</a></p><script>window.sidebarCurrent = {name: 'Move', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>gluon_vm</a>::<wbr><a href='index.html'>gc</a>::<wbr><a class='struct' href=''>Move</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-3941' class='srclink' href='../../src/gluon_vm/vm/src/gc.rs.html#165' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Move&lt;T&gt;(pub T);</pre><div class='docblock'><p><code>DataDef</code> that moves its value directly into the pointer
+useful for sized types</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../../gluon_vm/gc/trait.DataDef.html' title='gluon_vm::gc::DataDef'>DataDef</a> for <a class='struct' href='../../gluon_vm/gc/struct.Move.html' title='gluon_vm::gc::Move'>Move</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3945' class='srclink' href='../../src/gluon_vm/vm/src/gc.rs.html#167-175' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Value' class='type'><code>type <a href='../../gluon_vm/gc/trait.DataDef.html#associatedtype.Value' class='type'>Value</a> = T</code></h4>
+<div class='docblock'><p>The type of the value allocated.</p>
+</div><h4 id='method.size' class='method'><code>fn <a href='../../gluon_vm/gc/trait.DataDef.html#tymethod.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Returns how many bytes need to be allocted for this <code>DataDef</code></p>
+</div><h4 id='method.initialize' class='method'><code>fn <a href='../../gluon_vm/gc/trait.DataDef.html#tymethod.initialize' class='fnname'>initialize</a>(self, result: <a class='struct' href='../../gluon_vm/gc/struct.WriteOnly.html' title='gluon_vm::gc::WriteOnly'>WriteOnly</a>&lt;T&gt;) -&gt; &amp;mut T</code></h4>
+<div class='docblock'><p>Consumes <code>self</code> to initialize the allocated value. Returns the initialized pointer. <a href="../../gluon_vm/gc/trait.DataDef.html#tymethod.initialize">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../../gluon_vm/gc/trait.Traverseable.html' title='gluon_vm::gc::Traverseable'>Traverseable</a> for <a class='struct' href='../../gluon_vm/gc/struct.Move.html' title='gluon_vm::gc::Move'>Move</a>&lt;T&gt; <span class='where'>where T: <a class='trait' href='../../gluon_vm/gc/trait.Traverseable.html' title='gluon_vm::gc::Traverseable'>Traverseable</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-4100' class='srclink' href='../../src/gluon_vm/vm/src/gc.rs.html#398-404' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.traverse' class='method'><code>fn <a href='../../gluon_vm/gc/trait.Traverseable.html#method.traverse' class='fnname'>traverse</a>(&amp;self, gc: &amp;mut <a class='struct' href='../../gluon_vm/gc/struct.Gc.html' title='gluon_vm::gc::Gc'>Gc</a>)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "gluon_vm";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

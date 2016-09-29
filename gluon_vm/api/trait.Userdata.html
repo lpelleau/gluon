@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Userdata` trait in crate `gluon_vm`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Userdata">
+
+    <title>gluon_vm::api::Userdata - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>gluon_vm</a>::<wbr><a href='index.html'>api</a></p><script>window.sidebarCurrent = {name: 'Userdata', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>gluon_vm</a>::<wbr><a href='index.html'>api</a>::<wbr><a class='trait' href=''>Userdata</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-7701' class='srclink' href='../../src/gluon_vm/vm/src/value.rs.html#18' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Userdata: <a class='trait' href='../../mopa/trait.Any.html' title='mopa::Any'>Any</a> + <a class='trait' href='../../gluon_vm/gc/trait.Traverseable.html' title='gluon_vm::gc::Traverseable'>Traverseable</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> { }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.is' class='method'><code>fn <a href='#method.is' class='fnname'>is</a>&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>&gt;(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns true if the boxed type is the same as <code>T</code></p>
+</div><h4 id='method.downcast_ref' class='method'><code>fn <a href='#method.downcast_ref' class='fnname'>downcast_ref</a>&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>&gt;(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;T&gt;</code></h4>
+<div class='docblock'><p>Returns some reference to the boxed value if it is of type <code>T</code>, or
+<code>None</code> if it isn&#39;t.</p>
+</div><h4 id='method.downcast_ref_unchecked' class='method'><code>unsafe fn <a href='#method.downcast_ref_unchecked' class='fnname'>downcast_ref_unchecked</a>&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>&gt;(&amp;self) -&gt; &amp;T</code></h4>
+<div class='docblock'><p>Returns a reference to the boxed value, blindly assuming it to be of type <code>T</code>.
+If you are not <em>absolutely certain</em> of <code>T</code>, you <em>must not</em> call this.</p>
+</div><h4 id='method.downcast_mut' class='method'><code>fn <a href='#method.downcast_mut' class='fnname'>downcast_mut</a>&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>&gt;(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;mut T&gt;</code></h4>
+<div class='docblock'><p>Returns some mutable reference to the boxed value if it is of type <code>T</code>, or
+<code>None</code> if it isn&#39;t.</p>
+</div><h4 id='method.downcast_mut_unchecked' class='method'><code>unsafe fn <a href='#method.downcast_mut_unchecked' class='fnname'>downcast_mut_unchecked</a>&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>&gt;(&amp;mut self) -&gt; &amp;mut T</code></h4>
+<div class='docblock'><p>Returns a mutable reference to the boxed value, blindly assuming it to be of type <code>T</code>.
+If you are not <em>absolutely certain</em> of <code>T</code>, you <em>must not</em> call this.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.downcast' class='method'><code>fn <a href='#method.downcast' class='fnname'>downcast</a>&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>&gt;(self: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;Self&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;T&gt;,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;Self&gt;&gt;</code></h4>
+<div class='docblock'><p>Returns the boxed value if it is of type <code>T</code>, or <code>Err(Self)</code> if it isn&#39;t.</p>
+</div><h4 id='method.downcast_unchecked' class='method'><code>unsafe fn <a href='#method.downcast_unchecked' class='fnname'>downcast_unchecked</a>&lt;T:&nbsp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>&gt;(self: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;Self&gt;) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;T&gt;</code></h4>
+<div class='docblock'><p>Returns the boxed value, blindly assuming it to be of type <code>T</code>.
+If you are not <em>absolutely certain</em> of <code>T</code>, you <em>must not</em> call this.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-7702' class='srclink' href='../../src/gluon_vm/vm/src/value.rs.html#20-24' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, other: &amp;<a class='trait' href='../../gluon_vm/api/trait.Userdata.html' title='gluon_vm::api::Userdata'>Userdata</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;T&gt; Userdata for <a class='struct' href='../../gluon_vm/channel/struct.Sender.html' title='gluon_vm::channel::Sender'>Sender</a>&lt;T&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/any/trait.Any.html' title='core::any::Any'>Any</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> + <a class='trait' href='../../gluon_vm/gc/trait.Traverseable.html' title='gluon_vm::gc::Traverseable'>Traverseable</a></span></code></li>
+<li><code>impl&lt;T&gt; Userdata for <a class='struct' href='../../gluon_vm/channel/struct.Receiver.html' title='gluon_vm::channel::Receiver'>Receiver</a>&lt;T&gt; <span class='where'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/any/trait.Any.html' title='core::any::Any'>Any</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> + <a class='trait' href='../../gluon_vm/gc/trait.Traverseable.html' title='gluon_vm::gc::Traverseable'>Traverseable</a></span></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/gluon_vm/api/trait.Userdata.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "gluon_vm";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

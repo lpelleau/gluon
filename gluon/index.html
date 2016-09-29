@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `gluon` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, gluon">
+
+    <title>gluon - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'gluon', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>gluon</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/gluon/src/lib.rs.html#1-362' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>This crate contains contains the implementation for the gluon programming language.</p>
+
+<p>Gluon is a programming language suitable for embedding in an existing application to extend its
+behaviour. For information about how to use this library the best resource currently is the
+<a href="https://github.com/Marwes/gluon/blob/master/TUTORIAL.md">tutorial</a> which contains examples on
+how to write gluon programs as well as how to run them using this library.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub extern crate <a class='mod' href='../gluon_vm/index.html' title='gluon_vm'>gluon_vm</a> as vm;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../gluon_base/index.html' title='gluon_base'>gluon_base</a> as base;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../gluon_parser/index.html' title='gluon_parser'>gluon_parser</a> as parser;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../gluon_check/index.html' title='gluon_check'>gluon_check</a> as check;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='compiler_pipeline/index.html'
+                                  title='gluon::compiler_pipeline'>compiler_pipeline</a></td>
+                           <td class='docblock short'>
+                                <p>Advanced compiler pipeline which ensures that the compilation phases are run in order even if
+not the entire compilation procedure is needed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='import/index.html'
+                                  title='gluon::import'>import</a></td>
+                           <td class='docblock short'>
+                                <p>Implementation of the <code>import</code> macro.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='io/index.html'
+                                  title='gluon::io'>io</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Compiler.html'
+                                  title='gluon::Compiler'>Compiler</a></td>
+                           <td class='docblock short'>
+                                <p>Type which makes parsing, typechecking and compiling an AST into bytecode</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.RootedThread.html'
+                                  title='gluon::RootedThread'>RootedThread</a></td>
+                           <td class='docblock short'>
+                                <p>An instance of <code>Thread</code> which is rooted. See the <code>Thread</code> type for documentation on interacting
+with the type.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Thread.html'
+                                  title='gluon::Thread'>Thread</a></td>
+                           <td class='docblock short'>
+                                <p>Representation of the virtual machine</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.Error.html'
+                                  title='gluon::Error'>Error</a></td>
+                           <td class='docblock short'>
+                                <p>Error type wrapping all possible errors that can be generated from gluon</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.filename_to_module.html'
+                                  title='gluon::filename_to_module'>filename_to_module</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.new_vm.html'
+                                  title='gluon::new_vm'>new_vm</a></td>
+                           <td class='docblock short'>
+                                <p>Creates a new virtual machine with support for importing other modules and with all primitives
+loaded.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Result.html'
+                                  title='gluon::Result'>Result</a></td>
+                           <td class='docblock short'>
+                                <p>Type alias for results returned by gluon</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "gluon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

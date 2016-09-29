@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["KindError","Enumeration possible errors other than mismatch and occurs when kindchecking"]],"fn":[["fmt_kind_error",""]],"struct":[["KindCheck","Struct containing methods for kindchecking types"]],"type":[["Error",""],["Result",""]]});

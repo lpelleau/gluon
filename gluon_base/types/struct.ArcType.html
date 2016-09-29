@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ArcType` struct in crate `gluon_base`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ArcType">
+
+    <title>gluon_base::types::ArcType - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>gluon_base</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'ArcType', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>gluon_base</a>::<wbr><a href='index.html'>types</a>::<wbr><a class='struct' href=''>ArcType</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-3126' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#498-500' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ArcType&lt;Id&nbsp;=&nbsp;<a class='struct' href='../../gluon_base/symbol/struct.Symbol.html' title='gluon_base::symbol::Symbol'>Symbol</a>&gt; {
+    // some fields omitted
+}</pre><div class='docblock'><p>A shared type which is atomically reference counted</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Id&gt; <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3144' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#522-546' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(typ: <a class='enum' href='../../gluon_base/types/enum.Type.html' title='gluon_base::types::Type'>Type</a>&lt;Id,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;&gt;) -&gt; <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></h4>
+<h4 id='method.type_field_iter' class='method'><code>fn <a href='#method.type_field_iter' class='fnname'>type_field_iter</a>(&amp;self) -&gt; <a class='struct' href='../../gluon_base/types/struct.TypeFieldIterator.html' title='gluon_base::types::TypeFieldIterator'>TypeFieldIterator</a>&lt;Self&gt;</code></h4>
+<h4 id='method.field_iter' class='method'><code>fn <a href='#method.field_iter' class='fnname'>field_iter</a>(&amp;self) -&gt; <a class='struct' href='../../gluon_base/types/struct.FieldIterator.html' title='gluon_base::types::FieldIterator'>FieldIterator</a>&lt;Self&gt;</code></h4>
+<h4 id='method.into_inner' class='method'><code>fn <a href='#method.into_inner' class='fnname'>into_inner</a>(self) -&gt; <a class='enum' href='../../gluon_base/types/enum.Type.html' title='gluon_base::types::Type'>Type</a>&lt;Id,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;&gt; <span class='where'>where Id: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a></span></code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;Id&gt; <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3229' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#650-664' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.level' class='method'><code>fn <a href='#method.level' class='fnname'>level</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a></code></h4>
+<div class='docblock'><p>Returns the lowest level which this type contains. The level informs from where type
+variables where created.</p>
+</div></div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='enum' href='../../gluon_base/types/enum.Type.html' title='gluon_base::types::Type'>Type</a>&lt;Id,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;&gt;&gt;</h2><div class='impl-items'></div><div class='impl-items'><h4 id='method.as_function' class='method'><code>fn <a href='#method.as_function' class='fnname'>as_function</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>&amp;T, &amp;T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+<h4 id='method.as_alias' class='method'><code>fn <a href='#method.as_alias' class='fnname'>as_alias</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a>&amp;Id, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a>T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>&gt;</code></h4>
+</div><div class='impl-items'><h4 id='method.name' class='method'><code>fn <a href='#method.name' class='fnname'>name</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../gluon_base/symbol/struct.SymbolRef.html' title='gluon_base::symbol::SymbolRef'>SymbolRef</a>&gt;</code></h4>
+<div class='docblock'><p>Returns the name of <code>self</code>
+Example:
+Option a =&gt; Option
+Int =&gt; Int</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Id:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html' title='core::hash::Hash'>Hash</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html' title='core::hash::Hash'>Hash</a> for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3097' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#497' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.hash' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash' class='fnname'>hash</a>&lt;__HId:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html' title='core::hash::Hasher'>Hasher</a>&gt;(&amp;self, __arg_0: &amp;mut __HId)</code></h4>
+<div class='docblock'><p>Feeds this value into the state given, updating the hasher as necessary.</p>
+</div><h4 id='method.hash_slice' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[Self]</a>, state: &amp;mut H) <span class='where'>where H: <a class='trait' href='https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html' title='core::hash::Hasher'>Hasher</a></span></code><div class='since' title='Stable since Rust version 1.3.0'>1.3.0</div></h4>
+<div class='docblock'><p>Feeds a slice of this type into the state provided.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Id:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3104' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#497' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Id:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3116' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#497' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl&lt;Id:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3121' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#497' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Id:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3129' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#502-506' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Id:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3134' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#508-512' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Id&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3139' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#514-520' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = <a class='enum' href='../../gluon_base/types/enum.Type.html' title='gluon_base::types::Type'>Type</a>&lt;Id,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;&gt;</code></h4>
+<div class='docblock'><p>The resulting type after dereferencing</p>
+</div><h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;<a class='enum' href='../../gluon_base/types/enum.Type.html' title='gluon_base::types::Type'>Type</a>&lt;Id,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;&gt;</code></h4>
+<div class='docblock'><p>The method called to dereference a value</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Id&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;<a class='enum' href='../../gluon_base/types/enum.Type.html' title='gluon_base::types::Type'>Type</a>&lt;Id,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;&gt;&gt; for <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a id='src-3154' class='srclink' href='../../src/gluon_base/base/src/types.rs.html#548-552' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(typ: <a class='enum' href='../../gluon_base/types/enum.Type.html' title='gluon_base::types::Type'>Type</a>&lt;Id,&nbsp;<a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;&gt;) -&gt; <a class='struct' href='../../gluon_base/types/struct.ArcType.html' title='gluon_base::types::ArcType'>ArcType</a>&lt;Id&gt;</code></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "gluon_base";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
